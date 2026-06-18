@@ -3,7 +3,8 @@ name: Deploy Jekyll website to GitHub Pages
 on:
   # Run on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches:
+      - main
     
     # Allow to run this workflow manually from the Actions tab
     workflow_dispatch:
