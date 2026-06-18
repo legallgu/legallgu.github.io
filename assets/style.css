@@ -1,0 +1,806 @@
+/* =============================================================================
+   JEKYLL BEAR THEME - PINE FOREST AESTHETIC
+   ============================================================================= */
+/* =============================================================================
+   FONTS & IMPORTS
+   ============================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+/* =============================================================================
+   CSS CUSTOM PROPERTIES (VARIABLES)
+   ============================================================================= */
+
+:root {
+    /* Layout */
+    --width: 720px;
+    
+    /* Typography */
+    --font-main: 'IBM Plex Mono', monospace;
+    --font-secondary: 'IBM Plex Mono', monospace;
+    --font-monospace: 'IBM Plex Mono', monospace;
+    --font-title: 'IBM Plex Mono', monospace;
+    --font-title-sub: 'IBM Plex Mono', monospace;
+    --font-serif: 'PT Serif', monospace;
+    --font-scale: 0.7em;
+    
+    /* Spacing */
+    --spacing-xs: 5px;
+    --spacing-sm: 10px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+    --spacing-xl: 60px;
+    --spacing-navt: -10px;
+    --spacing-navb: -10px;
+    
+    /* Border radius */
+    --radius-sm: 3px;
+    --radius-md: 5px;
+    
+    /* Transitions */
+    --transition-fast: 0.2s;
+    --transition-normal: 0.3s;
+    
+    /* Z-index scale */
+    --z-dropdown: 200;
+    --z-modal: 1000;
+    
+    /* Pine Forest Theme Colors - Light Mode */
+    --background-color: #F5F7F3; /* Light pine needle mist */
+    --heading-color: #1A3025; /* Deep forest green */
+    --text-color: #0F2018; /* Dark pine shadow */
+    --link-color: #2D5016; /* Forest moss */
+    --visited-color: #1E3A11; /* Deep woodland */
+    --main-color: #4A7C59; /* Pine needle green */
+    --code-background-color: #E8EDEA; /* Frosted pine */
+    --code-color: #1A3025; /* Deep forest green */
+    --blockquote-color: #7A9B85; /* Sage green */
+    
+    /* Interactive colors derived from theme */
+    --hover-color: white;
+    --border-color: var(--blockquote-color);
+    --shadow-color: rgba(0, 0, 0, 0.18);
+    
+    /* Glow effects for interactive elements */
+    --glow-color-light: rgba(45, 80, 22, 0.3);
+    --glow-color-medium: rgba(45, 80, 22, 0.5);
+}
+
+/* Dark Mode Color Overrides */
+/* @media (prefers-color-scheme: dark) { */
+/*    :root { */
+/*         --background-color: #0D1B12; */ /* Dark pine shadow */
+/*         --heading-color: #C8D8CE; */ /* Light pine mist */
+/*         --text-color: #E0EADE; */ /* Pale forest light */
+/*         --link-color: #7AB069; */ /* Bright moss green */
+/*         --visited-color: #9BC490; */ /* Light woodland */
+/*         --main-color: #8BB899; */ /* Soft pine green */
+/*         --code-background-color: #1A2B1F; */ /* Dark evergreen */
+/*         --code-color: #C8D8CE; */ /* Light pine mist */
+/*         --blockquote-color: #4A6B52; */ /* Forest undergrowth */
+        
+         /* Dark mode glow effects */
+/*         --glow-color-light: rgba(122, 176, 105, 0.3); */
+/*         --glow-color-medium: rgba(122, 176, 105, 0.5); */
+/*     } */
+/* } /*
+
+/* =============================================================================
+   BASE STYLES
+   ============================================================================= */
+
+body {
+    font-family: var(--font-secondary);
+    font-size: var(--font-scale);
+    margin: auto;
+    padding: var(--spacing-md);
+    max-width: var(--width);
+    text-align: left;
+    background-color: var(--background-color);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.5;
+    color: var(--text-color);
+}
+
+/* =============================================================================
+   TYPOGRAPHY
+   ============================================================================= */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    color: var(--heading-color);
+}
+
+strong, b {
+    color: var(--heading-color);
+}
+
+/* =============================================================================
+   LINKS
+   ============================================================================= */
+
+a {
+    color: var(--link-color);
+    font-family: var(--font-main);
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: none;
+    /* border-bottom: 3px solid var(--main-color); */
+    transition: all var(--transition-fast) ease;
+}
+
+a:not([class="socials-icon"]):hover {
+    background-color: var(--main-color);
+    color: var(--hover-color);
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--visited-color);
+}
+
+/* External link marker */
+a[id="external"]:not(:has(img))::after {
+    content: "↗";
+    font-family: var(--font-monospace);
+}
+
+a[id="external"] {
+    color: var(--link-color);
+}
+
+a[id="back-homepage"] {
+    font-size: 1.2em;
+}
+
+.title:hover {
+    text-decoration: none;
+}
+
+h1:not([class="title"]):not([class="title-sub"]) {
+    padding-top: 10px;
+}
+
+h1[class="title"] {
+    /* font-size: 1.5em; */
+    font-family: var(--font-title);
+}
+
+h1[class="title-sub"] {
+    /* font-size: 1.5em; */
+    font-family: var(--font-title-sub);
+    font-weight: 300;
+}
+
+h1[id="join"] {
+    display: inline-block;
+}
+
+h2[class="404"] {
+    font-family: var(--font-title);
+}
+
+/* =============================================================================
+   LAYOUT COMPONENTS
+   ============================================================================= */
+
+header {
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 2px dotted var(--main-color);
+}
+
+nav {
+    margin-top: var(--spacing-navt);
+    margin-bottom: var(--spacing-navb);
+}
+
+nav a {
+    margin-right: 8px;
+}
+
+main {
+    line-height: 1.6;
+}
+
+footer {
+    margin-top: var(--spacing-lg);
+    border-top: 2px dotted var(--main-color);
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+footer > span:has(a[href="https://bearblog.dev"]) {
+    display: none;
+}
+
+/* =============================================================================
+   CONTENT ELEMENTS
+   ============================================================================= */
+
+hr {
+    border: 0;
+    border-top: 1px dashed var(--border-color);
+}
+
+img {
+    max-width: 100%;
+}
+
+img[class="socials-icon"] {
+    width: 3.5%;
+    padding-right: 1%;
+}
+
+img[class="socials-icon"]:hover {
+    opacity: 0.4;
+}
+
+blockquote {
+    border-left: 1px solid var(--blockquote-color);
+    color: var(--code-color);
+    padding-left: var(--spacing-md);
+    font-style: italic;
+}
+
+/* =============================================================================
+   CODE & SYNTAX HIGHLIGHTING
+   ============================================================================= */
+
+code {
+    font-family: var(--font-monospace);
+    padding: 2px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: var(--radius-sm);
+}
+
+.highlight,
+.code {
+    padding: 1px 15px;
+    background-color: var(--code-background-color);
+    color: var(--code-color);
+    border-radius: var(--radius-sm);
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    overflow-x: auto;
+}
+
+/* =============================================================================
+   TABLES
+   ============================================================================= */
+
+table {
+    width: 100%;
+    border-spacing: 0;
+}
+
+th, td {
+    padding: 6px -2px;
+    border: none;
+    font-size: 1em;
+    text-align: left;
+}
+
+/* =============================================================================
+   BLOG NEWS LISTINGS
+   ============================================================================= */
+
+ul.blog-news {
+    list-style-type: none;
+    padding: unset;
+}
+
+ul.blog-news li {
+    display: flex;
+    margin-bottom: var(--spacing-sm);
+}
+
+ul.blog-news li span {
+    flex: 0 0 130px;
+}
+
+ul.blog-news li a:visited {
+    color: var(--visited-color);
+}
+
+ul.blog-news li a:hover {
+    color: var(--hover-color);
+}
+
+i time {
+    font-style: normal;
+    opacity: 0.7;
+}
+
+/* =============================================================================
+   UTILITY CLASSES
+   ============================================================================= */
+
+.inline {
+    width: auto !important;
+}
+
+button {
+    margin: 0;
+    cursor: pointer;
+}
+
+/* =============================================================================
+   FORM ELEMENTS
+   ============================================================================= */
+
+input, button, textarea, select {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font: inherit;
+}
+
+legend {
+    margin: var(--spacing-md) 0;
+    font-weight: bold;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input, textarea {
+    margin: 0 0 var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    color: var(--text-color);
+    background: var(--code-background-color);
+    border: 2px solid var(--link-color);
+    border-radius: var(--radius-md);
+}
+
+input {
+    width: 55%;
+}
+
+textarea {
+    width: 95%;
+}
+
+input[type=button], 
+input[type=submit], 
+input[type=reset] {
+    margin: 0 0 var(--spacing-md);
+    padding: 7px;
+    font-family: var(--font-secondary);
+    font-weight: bold;
+    color: var(--background-color);
+    background: var(--link-color);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+}
+
+::placeholder {
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+/* =============================================================================
+   GLITCH EFFECT
+   Source: http: //codepen.io/bulby97/pen/fcvay
+   ============================================================================= */
+
+.glitch {
+    position: relative;
+    animation: glitch 2s steps(100) infinite;
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    1% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    2% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    3% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    4% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    5% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    6% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    7% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    8% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    9% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    10% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    11% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    12% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    13% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    14% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    15% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    16% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    17% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    18% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    19% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    20% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    21% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    22% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    23% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    24% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    25% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    26% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    27% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    28% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    29% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    30% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    31% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    32% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    33% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    34% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    35% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    36% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    37% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    38% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    39% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    40% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    41% {
+        text-shadow: 50px 0 0 blue, -50px 0 0 lime;
+    }
+
+    42% {
+        text-shadow: 0 0 0 blue, 0 0 0 lime;
+    }
+
+    43% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    44% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    45% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    46% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    47% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    48% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    49% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    50% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    51% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    52% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    53% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    54% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    55% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    56% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    57% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    58% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    59% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    60% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    61% {
+        text-shadow: 30px 0 0 red, -30px 0 0 lime;
+    }
+
+    62% {
+        text-shadow: 0 0 0 red, 0 0 0 lime;
+    }
+
+    63% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;
+    }
+
+    64% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;
+    }
+
+    65% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;
+    }
+
+    66% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 blue;
+    }
+
+    67% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    68% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    69% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    70% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    71% {
+        text-shadow: 70px 0 0 red, -70px 0 0 blue;
+    }
+
+    72% {
+        text-shadow: 0 0 0 red, 0 0 0 blue;
+    }
+
+    73% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    74% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    75% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    76% {
+        text-shadow: 1px 0 0 red, -1px 0 0 blue;
+    }
+
+    77% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    78% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    79% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    80% {
+        text-shadow: -1px 0 0 red, 1px 0 0 blue;
+    }
+
+    81% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    82% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    83% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    84% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    85% {
+        text-shadow: 0.5px 0 0 red, -0.5px 0 0 lime;
+    }
+
+    86% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    87% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    88% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    89% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    90% {
+        text-shadow: -1px 0 0 red, 1px 0 0 lime;
+    }
+
+    91% {
+        text-shadow: 60px 0 0 lime, -60px 0 0 blue;
+    }
+
+    92% {
+        text-shadow: 0 0 0 lime, 0 0 0 blue;
+    }
+
+    92% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    93% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    94% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    95% {
+        text-shadow: 0.7px 0 0 blue, -0.7px 0 0 lime;
+    }
+
+    96% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    97% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    98% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    99% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+
+    100% {
+        text-shadow: -1px 0 0 blue, 1px 0 0 lime;
+    }
+}
+  

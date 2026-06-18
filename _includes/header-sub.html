@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <header>
+    <h1 class="title" id="join">{{ site.title }}</h1>
+    <h1 class="title-sub" id="join">&nbsp;|&nbsp;{{ page.title }}</h1>
+    <nav>
+      <p>
+        <a href="{{ site.url }}">home</a>
+
+        {% for link in site.links %}
+        <a href="{{ site.url }}{{ link[1] }}">{{ link[0] }}</a>
+        {% endfor %} {% for link in site.special_links %}
+        <a href="{{ link[1] }}">[{{ link[0] }}]</a>
+        {% endfor %}
+      </p>
+    </nav>
+  </header>
+</html>

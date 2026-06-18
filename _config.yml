@@ -1,0 +1,153 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you:
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+title: Guillaume Le Gall
+description: "This is the personal website of Guillaume Le Gall."
+domain: legallgu.github.io 
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://legallgu.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Socials
+author:
+  fullname: Guillaume Le Gall
+  email-work: guillaume.le_gall@minesparis.psl.eu
+  email-perso: guillaume.fj.lg@proton.me
+  github: legallgu
+  linkedin: guillaume-le-gall
+  researchgate: guillaume-le-gall-2
+  orcid: 0009-0007-6251-7549
+  googlescholar: guillaume.fj.lg@gmail.com
+
+# Build settings
+theme: jekyll-bear-theme
+plugins:
+  - jekyll-feed
+
+# More settings
+whitelist:
+  - jekyll-redirect-from
+
+markdown: kramdown
+
+compress_html:
+  clippings: all
+  comments: [""]
+  endings: [html, head, body, li, dt, dd, rt, rp, optgroup, option, colgroup, caption, thead, tbody, tfoot, tr, td, th]
+  profile: false
+  blanklines: false
+  ignore:
+    envs: []
+
+# sass:
+#   sass_dir: css
+#   style:    compressed
+
+collections:
+  my_tags:
+    output: true
+    permalink: /tagged/:slug/
+defaults:
+  -
+    scope:
+      path: ""
+      type: my_tags
+    values:
+      layout: tagged
+
+permalink: /:slug
+timezone: France/Paris
+future: false
+
+exclude:
+- README.md
+- LICENSE.md
+
+exclude: [vendor]
+
+# Add general links to site pages here
+links:
+  # blog: /blog
+  # Life: /life-in-weeks
+  about: /about
+  research: /research
+  communications: /communications
+  teaching: /teaching
+  news_archive: /news_archive
+  gallery: /gallery
+  contact: /contact
+
+# Add links for more focus here
+special_links:
+  # "Search": https://duckduckgo.com
+
+# Files
+files:
+  GECH615_CM1_2024-25: "assets/documents/GECH615_cm-1_2024-25.pdf"
+  GECH615_CM2_2024-25: "assets/documents/GECH615_cm-2_2024-25.pdf"
+  GECH615_CM3_2024-25: "assets/documents/GECH615_cm-3_2024-25.pdf"
+  GECH615_TD1_2024-25: "assets/documents/GECH615_td-1_2024-25.pdf"
+  GECH615_TD2_2024-25: "assets/documents/GECH615_td-2_2024-25.pdf"
+  GECH615_TD3_2024-25: "assets/documents/GECH615_td-3_2024-25.pdf"
+  GECH615_DS_2024-25: "assets/documents/GECH615_ds_2024-25.pdf"
+  GECH780_TD1_2025-26: "assets/documents/GECH780_td-1_2025-26.pdf"
+  GECH780_TD2_2025-26: "assets/documents/GECH780_td-2_2025-26.pdf"
+  GECH780_DS_2025-26: "assets/documents/GECH780_ds_2025-26.pdf"
+  GECH780_DS_2024-25: "assets/documents/GECH780_ds_2024-25.pdf"
+  slides_cisbat_2025: "assets/documents/slides_cisbat_09-2025.pdf"
+  slides_dip-mat-seminari_unibo_2024: "assets/documents/slides_dip-mat-seminari_unibo_03-2024_v2.pdf"
+  slides_helios-consortium_2024: "assets/documents/slides_helios-consortium_ntnu_24-03-2024.pdf"
+  slides_jnes_2024: "assets/documents/slides_jnes_06-2024_v3.pdf"
+  slides_rad-symposium_2025: "assets/documents/slides_rad-25_06-2025_v2.pdf"
+  slides_solar-academy-conf_2025: "assets/documents/slides_SHES755-conference_09-2025_v2.pdf"
+  ESBC-ENER751_LN1_2022-23: "assets/documents/ESBC-ENER751_lecture-1_2022-23_c-caliot.pdf"
+  ESBC-ENER751_LN2_2022-23: "assets/documents/ESBC-ENER751_lecture-2_2022-23_c-caliot.pdf"
+  ESBC-ENER751_TD_2024-25: "assets/documents/ESBC-ENER751_td_2024-25.pdf"
+  ESBC-ENER858_LN_2024-25: "assets/documents/ESBC-ENER858_lecture-notes_2024-25.pdf"
+  ESBC-ENER858_R1_2024-25: "assets/documents/ESBC-ENER858_R1_2024-25.zip"
+  ESBC-ENER858_R2_2024-25: "assets/documents/ESBC-ENER858_R2_2024-25.zip"
+  ESBC-ENER858_PR_2024-25: "assets/documents/ESBC-ENER858_PR_2024-25.zip"
+  cv: "assets/documents/cv_06-2026.pdf"
+
+images:
+  github_icon: "assets/images/icons/github_icon.svg"
+  googlescholar_icon: "assets/images/icons/googlescholar_icon.svg"
+  linkedin_icon: "assets/images/icons/linkedin_icon.svg"
+  orcid_icon: "assets/images/icons/orcid_icon.svg"
+  researchgate_icon: "assets/images/icons/researchgate_icon.svg"
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
