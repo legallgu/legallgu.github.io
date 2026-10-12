@@ -59,8 +59,8 @@ The course is taught in English.
 
 | Lectures                | Last update    | Access                                                                                                                   |
 |-------------------------|----------------|--------------------------------------------------------------------------------------------------------------------------|
-| [LN1] Introduction to radiative transfer     | September 2022    | <a id="external" href="{{ site.files.ESBC-ENER751_LN1_2022-23 | relative_url }}" target="_blank">Download<a/> [EN]<br>             |
-| [LN2] Exchanges between diffuse surfaces  | September 2022  | <a id="external" href="{{ site.files.ESBC-ENER751_LN2_2022-23 | relative_url }}" target="_blank">Download<a/> [EN]<br>    |
+| [LN1] Introduction to radiative transfer     | September 2022    | Private <br>             |
+| [LN2] Exchanges between diffuse surfaces  | September 2022  | Private <br>    |
 | | | |
 | **Practical sessions**                | **Last update**    | **Access**                                                                                                                   |
 | [TD] Subject  | April 2026  | <a id="external" href="{{ site.files.ESBC-ENER751_TD_2024-25 | relative_url }}" target="_blank">Download<a/> [EN]<br>    |
@@ -76,7 +76,7 @@ The course is taught in English.
 
 | Material                | Last update    | Access                                                                                                                   |
 |-------------------------|----------------|--------------------------------------------------------------------------------------------------------------------------|
-| [LN] Lecture notes       | April 2026    | <a id="external" href="{{ site.files.ESBC-ENER858_LN_2024-25 | relative_url }}" target="_blank">Download<a/> [EN]<br>             |
+| [LN] Lecture notes       | April 2026    | <a id="external" href="{{ site.files.ESBC-ENER858_LN_2024-25 | relative_url }}" target="_blank">Private [EN]<br>             |
 | [R1] Practical session 1 - Working directory  | February 2025  | <a id="external" href="{{ site.files.ESBC-ENER858_R1_2024-25 | relative_url }}" target="_blank">Download<a/> <br>    |
 | [R2] Practical session 2 - Working directory  | February 2025  | <a id="external" href="{{ site.files.ESBC-ENER858_R2_2024-25 | relative_url }}" target="_blank">Download<a/> <br>    |
 | [PR] Final project - Working directory  | February 2025  | <a id="external" href="{{ site.files.ESBC-ENER858_PR_2024-25 | relative_url }}" target="_blank">Download<a/> <br>    |

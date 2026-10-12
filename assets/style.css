@@ -13,16 +13,16 @@
 
 :root {
     /* Layout */
-    --width: 720px;
+    --width: 1500px;
     
     /* Typography */
-    --font-main: 'IBM Plex Mono', monospace;
-    --font-secondary: 'IBM Plex Mono', monospace;
+    --font-main: 'Utopia', monospace;
+    --font-secondary: 'Utopia', monospace;
     --font-monospace: 'IBM Plex Mono', monospace;
-    --font-title: 'IBM Plex Mono', monospace;
-    --font-title-sub: 'IBM Plex Mono', monospace;
-    --font-serif: 'PT Serif', monospace;
-    --font-scale: 0.7em;
+    --font-title: 'Lovelace Text', monospace;
+    --font-title-sub: 'Lovelace Text', monospace;
+    --font-serif: 'Utopia', monospace;
+    --font-scale: 0.9em;
     
     /* Spacing */
     --spacing-xs: 5px;
